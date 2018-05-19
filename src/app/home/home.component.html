@@ -1,0 +1,5 @@
+<!--Se user.newUser == true-->
+<bem-vindo *ngIf="user.newUser == true" [user]="user"></bem-vindo>
+
+<!--Se user.newUser == false-->
+<al-panel *ngIf="user.newUser == false"></al-panel>

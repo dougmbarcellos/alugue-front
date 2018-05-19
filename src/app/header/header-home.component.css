@@ -1,0 +1,19 @@
+button.btnTopo {
+    font-size: x-large;
+    font-family: Lobster;
+    width: auto;
+}
+
+button.btnTopoPrincipal {
+    height: inherit;
+}
+
+img.perfil {
+    width: auto;
+    height: inherit;
+}
+
+.color-header-home {
+    background: snow;
+    color: teal;
+}

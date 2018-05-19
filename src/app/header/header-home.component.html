@@ -1,0 +1,20 @@
+<md-toolbar class="logo color-header-home">
+	Alugue um Guia Amig<span>
+		<md-icon class="icon-header">explore</md-icon>
+		</span>
+	<span class="nav-space"></span>
+	<img src={{user.linkPicture}} class="perfil">
+	<button md-button [md-menu-trigger-for]="menu" class="btnTopo btnTopoPrincipal">
+		<div style="white-space: pre;">   {{user.name}}   </div>
+	</button>
+</md-toolbar>
+
+<md-menu x-position="before" y-position="below" #menu="mdMenu" class="color-header-home">
+	<button md-menu-item class="btnTopo">
+		<div style="white-space: pre;">   {{user.name}}   </div>
+	</button>
+	<button md-menu-item *ngIf="user.guia" (click)="showGuia()">Meu Perfil</button>
+	<button md-menu-item *ngIf="!user.guia">+guia</button>
+	<button md-menu-item>Ajuda</button>
+	<button md-menu-item (click)="logout()">Sair</button>
+</md-menu>

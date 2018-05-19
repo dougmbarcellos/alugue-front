@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<al-header *ngIf="!isLogged && isLogged !== null"></al-header>
+
+<al-header-home *ngIf="isLogged"></al-header-home>
+
+<div class="app-content">
+	<al-initial-content *ngIf="!isLogged && isLogged !== null"></al-initial-content>
+	<al-home *ngIf="isLogged"></al-home>
+</div>

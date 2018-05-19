@@ -1,0 +1,84 @@
+<div id="guia-div">
+	<md-card class="flipInX">
+		<md-toolbar id="toolbar-guia" color="primary" class="guia-title-form">Cadastro de novo Guia</md-toolbar>
+		<md-card-content style="margin-top: 10px">
+			<form [formGroup]="guiaForm">
+				<md-select
+					id="estado"
+					name="estado"
+					class="guia-input"
+					style="margin-top: 15px"
+					placeholder="Estado"
+					md-tooltip="Escolha seu estado"
+					tooltip-position="below"
+					formControlName="estado"
+					required>
+					
+					<md-option *ngFor="let est of estados" [value]="est" (click)="onChange(est)">
+						{{est.nome}}
+					</md-option>
+				</md-select>
+
+				<md-select
+					id="cidade"
+					name="cidade"
+					class="guia-input"
+					style="margin-top: 25px"
+					placeholder="Cidade"
+					md-tooltip="Escolha sua Cidade"
+					tooltip-position="below"
+					formControlName="cidade"
+					[disabled]="cidades.length == 0"
+					required>
+					
+					<md-option *ngFor="let cid of cidades" [value]="cid">
+						{{cid.nome}}
+					</md-option>
+				</md-select>
+				
+				<md-input-container class="guia-input" style="margin-top: 10px">
+					<input md-input
+						id="email"
+						name="email"
+						type="email"
+						placeholder="Email"
+						autocomplete="off"
+						formControlName="email"
+						required>
+				</md-input-container>
+
+				<md-input-container class="guia-input">
+					<input md-input
+						id="senha"
+						name="senha"
+						type="password"
+						autocomplete="new-password"
+						placeholder="Senha de segurança"
+						md-tooltip="Esta senha é usada para aceitar ou cancelar trips"
+						tooltip-position="after"
+						formControlName="senha"
+						required>
+
+						<md-hint align="start">Mínimo: 6 caracteres</md-hint>
+				</md-input-container>
+			</form>
+		</md-card-content>
+		
+		<md-card-actions style="text-align: center;">
+			<button
+				type="submit"
+				[disabled]="guiaForm.invalid"
+				(click)="confirmar(guiaForm.value)"
+				md-raised-button>
+				Confirmar
+				<md-spinner *ngIf="loading" class="app-spinner"></md-spinner>
+			</button>
+		</md-card-actions>
+	</md-card>
+</div>
+
+<span class="app-action">
+  	<button md-fab (click)="goBack()" color="primary">
+	  	<md-icon fontSet="fa" fontIcon="fa-chevron-left"></md-icon>
+	</button>
+</span>

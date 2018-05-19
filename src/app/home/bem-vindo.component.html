@@ -1,0 +1,36 @@
+<md-grid-list cols="2" *ngIf="notChange">
+	<md-grid-tile>
+		<md-card (click)="normalSelected()" class="one" [ngClass]="{'al-fadeout': activeFade}">
+			<md-card-header>
+			   <md-card-title class="titleCardFont">
+					Quero viajar
+				</md-card-title>
+			</md-card-header>
+			
+			<img md-card-image src="/assets/pexels-.jpeg">
+			
+			<md-card-actions style="text-align: center;">
+				<button md-button class="userPartiu">Partiu!</button>
+			</md-card-actions>
+		</md-card>
+	</md-grid-tile>
+	
+	<md-grid-tile>
+		<md-card (click)="guideSelected()" class="two" [ngClass]="{'al-fadeout': activeFade}">
+			<md-card-header>
+				<md-card-title class="titleCardFont">
+					Quero ser um Guia Amigo
+				</md-card-title>
+			</md-card-header>
+			
+			<img md-card-image src="/assets/pexels.jpg">
+			
+			<md-card-actions style="text-align: center;">
+				<button md-button class="guiaStart">START</button>
+			</md-card-actions>
+		</md-card>
+	</md-grid-tile>
+</md-grid-list>
+
+<guia-form *ngIf="guia === true"></guia-form>
+<!--<user-init *ngIf="guia === false"></user-init>-->

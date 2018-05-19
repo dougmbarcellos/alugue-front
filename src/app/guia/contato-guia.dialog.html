@@ -1,0 +1,58 @@
+<form [formGroup]="contatoForm" (submit)="save(contatoForm.value, contatoForm.valid)">
+	
+	<label class="selectLabel">Data *</label>
+	<my-date-picker
+		locale="pt-br"
+		[options]="myDatePickerOptions"
+		(dateChanged)="onDateChanged($event)">
+		<md-hint align="start" color="warn" [hidden]="isValid('data')">
+			Campo inválido
+		</md-hint>
+	</my-date-picker>
+	
+	<!--<md-input-container hidden>
+		<input md-input
+			id="data"
+			name="data"
+			type="date"
+			formControlName="data"
+			required>
+	</md-input-container>-->
+			
+	<md-input-container class="contato-input">
+		<input md-input
+			id="cidade"
+			name="cidade"
+			type="text"
+			placeholder="Cidade (desabilitado)"
+			formControlName="cidade"
+			[(ngModel)]="guia.local.cidade"
+			disabled
+			required>
+			<md-hint align="start" color="warn" [hidden]="isValid('cidade')">
+				Campo inválido
+			</md-hint>
+	</md-input-container>
+
+	<md-input-container class="contato-input">
+		<textarea md-input #descricao
+			id="descViagem"
+			name="descViagem"
+			placeholder="Descrição da Viagem"
+			formControlName="descricao"
+			required>
+			<md-hint align="start" color="warn" [hidden]="isValid('descricao')">
+				Campo inválido
+			</md-hint>
+			<md-hint align="end">{{descricao.characterCount}} / 300</md-hint>
+		</textarea>
+	</md-input-container>
+
+	<div style="text-align: center">
+		<button md-raised-button
+			type="submit">
+			Solicitar Viagem
+			<md-spinner *ngIf="loading" class="app-spinner"></md-spinner>
+		</button>
+	</div>
+</form>

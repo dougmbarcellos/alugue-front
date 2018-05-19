@@ -1,0 +1,145 @@
+md-card {
+	background: snow;
+	color: teal;
+}
+
+/* Animação do cartão esquerdo - usuário normal */
+md-card.one {
+	-webkit-animation: slideInDown 5s;
+	animation: slideInDown 3s;
+	cursor: pointer;
+	width: 60%;
+}
+
+/* Animação do cartão direito - guia */
+md-card.two {
+	-webkit-animation: slideInUp 5s;
+	animation: slideInUp 3s;
+	cursor: pointer;
+	width: 60%;
+}
+
+@-webkit-keyframes slideInDown {
+	from {
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+		opacity: 0;
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideInDown {
+	from {
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+		opacity: 0;
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes slideInUp {
+	from {
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+		opacity: 0;
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideInUp {
+	from {
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+		opacity: 0;
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+
+/* W3C animatetop - webkit */
+/*@-webkit-keyframes animatetop {
+	from {
+		opacity:0;
+	}
+	50% {
+		top:-300px;
+		opacity:0;
+	}
+	to {
+		top:0px;
+		opacity:1;
+	}
+}*/
+
+/* W3C animatetop */
+/*@keyframes animatetop{
+	from {
+		top:-300px;
+		opacity:0;
+	}
+	to {
+		top:0px;
+		opacity:1;
+	}
+}*/
+
+/* W3C animatebottom - webkit */
+/*@-webkit-keyframes animatebottom {
+	from {
+		opacity:0;
+	}
+	50% {
+		bottom:-300px;
+		opacity:0;
+	} 
+	to {
+		bottom:0px;
+		opacity:1;
+	}
+}*/
+
+/* W3C animatebottom */
+/*@keyframes animatebottom {
+	from {
+		bottom:-300px;
+		opacity:0;
+	}
+	to {
+		bottom:0px;
+		opacity:1
+	}
+}*/
+
+.titleCardFont {
+	font-family: 'Amatic SC', cursive;
+	font-size: xx-large;
+}
+
+.userPartiu {
+	font-family: 'Lobster';
+	font-size: x-large
+}
+
+.guiaStart {
+	font-family: 'Press Start 2P', cursive;
+	font-size: large;
+}

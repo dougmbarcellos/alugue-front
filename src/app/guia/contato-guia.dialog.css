@@ -1,0 +1,13 @@
+.contato-input {
+	width: 100%; 
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+}
+
+.selectLabel {
+	color: rgba(0, 0, 0, 0.41);
+	font-size: 11px;
+	user-select: none;
+	-webkit-user-select: none;
+}

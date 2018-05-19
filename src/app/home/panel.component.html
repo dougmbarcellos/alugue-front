@@ -1,0 +1,82 @@
+<md-tab-group [(selectedIndex)]="indexTab">
+<!--<md-tab-group>-->
+  <md-tab>
+    <template md-tab-label style="font-family: Tillana">
+      <md-icon style="vertical-align: sub; font-size: larger;">dashboard</md-icon>Dashboard
+    </template>
+    <!--<template md-tab-content>-->
+      
+      <!--<div class="search-results"
+            infinite-scroll
+            [infiniteScrollDistance]="2"
+            [infiniteScrollThrottle]="1000"
+            (scrolled)="onScroll()">
+        </div>-->
+      <md-card class="panelcard" *ngFor="let cidadeInfo of arrayCity" style="text-align: center">
+        <md-card-title style="cursor: pointer;" (click)="console.log(cidadeInfo.cidade.nome)">
+          <span style="font-family: Lobster">{{cidadeInfo.cidade.nome}} - {{cidadeInfo.sigla}}</span>
+        </md-card-title>
+        <!--<md-card-content>content</md-card-content>-->
+
+
+          <md-grid-list *ngIf="cidadeInfo.cidade.locais.length > 1" [cols]="cidadeInfo.cidade.locais.length">
+            <md-grid-tile
+              *ngFor="let local of cidadeInfo.cidade.locais"
+              colspan="1"
+              style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+              
+                <img [alt]="local.nome" [src]="local.fotos.urlImg" style="height: 100%; width: auto;">
+
+              <!--<div *ngIf="cidadeInfo.cidade.locais.length == 1">
+                <img [alt]="local.nome" [src]="local.fotos.urlImg">
+              </div>-->
+
+              <md-grid-tile-footer>
+                <h3 md-line>{{local.nome}}</h3>
+                <span md-line>{{local.fotos.descricao}}</span>
+                <md-icon>location_city</md-icon>
+              </md-grid-tile-footer>
+            </md-grid-tile>
+          </md-grid-list>
+
+          <md-grid-list *ngIf="cidadeInfo.cidade.locais.length == 1" [cols]="cidadeInfo.cidade.locais.length" [rowHeight]="450">
+            <md-grid-tile
+              *ngFor="let local of cidadeInfo.cidade.locais"
+              colspan="1"
+              style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+              
+              <!--<div *ngIf="cidadeInfo.cidade.locais.length > 1">
+                <img [alt]="local.nome" [src]="local.fotos.urlImg" style="height: 100%; width: auto;">
+              </div>-->
+
+                <img [alt]="local.nome" [src]="local.fotos.urlImg" style="height: 100%; width: auto;">
+
+              <md-grid-tile-footer>
+                <h3 md-line>{{local.nome}}</h3>
+                <span md-line>{{local.fotos.descricao}}</span>
+                <md-icon>location_city</md-icon>
+              </md-grid-tile-footer>
+            </md-grid-tile>
+          </md-grid-list>
+      </md-card>
+
+
+
+   
+    <!--</template>-->
+  </md-tab>
+  <md-tab>
+    <template md-tab-label style="font-family: Tillana">
+      <md-icon style="vertical-align: sub; font-size: larger;">place</md-icon>Buscar Cidade
+    </template>
+
+    <al-search></al-search>
+    
+  </md-tab>
+    <md-tab *ngIf="guiaHidden">
+    <template md-tab-label style="font-family: Tillana">
+      <md-icon style="vertical-align: sub; font-size: larger;">directions_walk</md-icon>Guia
+    </template>
+    <al-guia></al-guia>
+  </md-tab>
+</md-tab-group>

@@ -1,0 +1,74 @@
+<div style="">
+	<form class="upload" method="POST" id="formImage" name="formImage" enctype="multipart/form-data" [hidden]="imgChanged">
+		<input 
+			type="file"
+			id="fileUp"
+			name="fileUp"
+			accept=".png, .jpg, .jpeg"
+			#input
+			(change)="fileChange(input)"
+			required>
+		<p>Arraste a imagem ou clique nesta área</p>
+	</form>
+	
+	<div style="text-align: center;">
+		<div class="wrapper" *ngIf="imgChanged">
+			<img
+				[attr.src]='file_src'
+				alt=""
+				[hidden]="!imgChanged"
+				style="
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				max-height: 400px;
+				max-width: 600px;"/>
+	
+			<span class="close">
+				<md-icon
+					style="border-radius: 50%; background: snow; color: teal; margin: -10px; border: solid 2px teal;"
+					md-tooltip="Remover imagem"
+					tooltip-position="below"
+					(click)="resetImage()">
+						close
+				</md-icon>
+			</span>
+		</div>
+	</div>
+
+	<form [formGroup]="localForm" style="margin-top: 15px">
+		<md-input
+			id="local"
+			name="local"
+			#localInput
+			type="text"
+			placeholder="Local"
+			class="local-input"
+			md-tooltip="Onde esta foto foi tirada em {{cidadeInfo.cidade.nome}}?"
+			tooltip-position="below"
+			[formControl]="localForm.controls['local']">
+
+			<md-hint align="end">{{localInput.characterCount}} / 100</md-hint>
+		</md-input>
+
+		<md-input
+			id="descricao"
+			name="descricao"
+			#descInput
+			type="text"
+			placeholder="Descrição"
+			class="local-input"
+			[formControl]="localForm.controls['descricao']">
+
+			<md-hint align="end">{{descInput.characterCount}} / 100</md-hint>
+		</md-input>
+	</form>
+
+	<div style="text-align: center;">
+		<button
+			[disabled]="localForm.invalid || !imgChanged"
+			(click)="confirmar()"
+			md-raised-button>
+			Salvar Imagem
+			<md-spinner *ngIf="loading" class="app-spinner"></md-spinner>
+		</button>
+	</div>
+</div>

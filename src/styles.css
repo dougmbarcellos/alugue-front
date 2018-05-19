@@ -1,1 +1,281 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+@import url('https://fonts.googleapis.com/css?family=Tillana');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+/*@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';*/
+
+body {
+	margin: 0;
+	font-family: Roboto, sans-serif;
+	background: url("pexels-photo-27765.jpg") no-repeat center center fixed;
+	background-size: cover;
+}
+
+/* Configura tamanho do scroll em navegadores webKit */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Configura a cor teal para scroll */
+::-webkit-scrollbar-thumb {
+	background-color: teal;
+}
+
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[scroll] {
+	position: fixed;
+	top: 0;
+}
+
+@keyframes animacaoBussola {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	10% {
+		-webkit-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+	20% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	30% {
+		-webkit-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+	40% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	50% {
+		-webkit-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+	60% {
+		-webkit-transform: rotate(0deg);
+		transform:rotate(0deg);
+	}
+	70% {
+		-webkit-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+	80% {
+		-webkit-transform: rotate(0deg);
+		transform:rotate(0deg);
+	}
+	90% {
+		-webkit-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+	100% {
+		-webkit-transform: rotate(0deg);
+		transform:rotate(0deg);
+	}
+}
+
+.icon-header {
+	vertical-align: middle;
+	animation: animacaoBussola 2s infinite;
+}
+
+.logo {
+	justify-content: center;
+	font-family: Lobster;
+	font-size: 40px;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+[toolmod] {
+	opacity: 0.85;
+	color: lightcoral;
+	background-color: whitesmoke;
+}
+
+.nav-space {
+	flex: 1 1 auto;
+}
+
+.sebm-google-map-container {
+  height: 300px;
+}
+
+/* SnackBar - personalização do texto */
+md-simple-snackbar-message {
+	color: blanchedalmond;
+	font-weight: bold;
+}
+
+/* SnackBar - personalização do botão */
+md-simple-snackbar-action {
+	color: darkorange;
+}
+
+/* Animação do card de formulário */
+md-card.fade-in-form {
+	-webkit-animation: fadein 3s;
+	animation: fadein 3s
+}
+
+@-webkit-keyframes fadein {
+	from {
+		opacity:0
+	} 
+	to {
+		opacity:1
+	}
+}
+
+@keyframes fadein {
+	from {
+		opacity:0
+	} 
+	to {
+		opacity:1
+	}
+}
+
+/* Animação de Fade Out */
+md-card.al-fadeout {
+	-webkit-animation: fadeout 2s;
+	animation: fadeout 2s
+}
+
+@-webkit-keyframes fadeout {
+	from {
+		opacity:1
+	} 
+	to {
+		opacity:0
+	}
+}
+
+@keyframes fadeout {
+	from {
+		opacity:1
+	} 
+	to {
+		opacity:0
+	}
+}
+
+@-webkit-keyframes flipInX {
+	from {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+	}
+
+	to {
+		-webkit-transform: perspective(400px);
+		transform: perspective(400px);
+	}
+}
+
+@keyframes flipInX {
+	from {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+	}
+
+	to {
+		-webkit-transform: perspective(400px);
+		transform: perspective(400px);
+	}
+}
+
+/* Animate.css flipInX */
+.flipInX {
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	-webkit-animation-name: flipInX;
+	animation-name: flipInX;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+/* SnackBar - Personalização do background */
+snack-bar-container {
+	background-color: teal !important;
+}
+
+[md-tab-nav-bar], .md-tab-header {
+	border-top: 1px solid #e0e0e0;
+}
+
+/* Configuração de tamanho para spinner do botão confirmar do form para novo guia */
+.app-spinner {
+  height: 25px !important;
+  width: 15px !important;
+  display: inline-block !important;
+}
+
+/* Ajuste de margem */
+md-card.panelcard {
+    margin: 20px;
+}
+
+.md-tab-label {
+	font-family: Tillana !important;
+	font-size: larger !important;
+}
+
+/* Classe para o componente angular2-infinite-scroll */
+.search-results {
+	height: 100%;
+	/*overflow: scroll;*/
+}

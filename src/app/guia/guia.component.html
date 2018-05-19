@@ -1,0 +1,112 @@
+<md-card class="panelcard" id="guiaCard" *ngIf="infoGuia">
+	<md-toolbar color="primary">
+		<span style="font-family: Lobster">{{guia.displayName}}</span>
+		<span class="nav-space"></span>
+		<span>
+			<button
+				md-raised-button
+				*ngIf="!self"
+				(click)="openDialogContato()"
+				style="vertical-align: text-bottom;  color: teal;">
+				Contatar <md-icon>assistant_photo</md-icon>
+			</button>
+
+			<!--<md-icon
+				style="cursor: pointer;"
+				md-tooltip="Pergunte algo para {{guia.firstName}}"
+				tooltip-position="below">question_answer</md-icon>-->
+
+			<md-icon
+				style="cursor: pointer;"
+				*ngIf="!self"
+				md-tooltip="Denunciar"
+				tooltip-position="below">warning</md-icon>
+
+			<md-icon
+				(click)="close()"
+				style="cursor: pointer;"
+				md-tooltip="Fechar"
+				tooltip-position="below">close</md-icon>
+		</span>
+	</md-toolbar>
+
+	<div class="row">
+		<div class="four columns">
+			<md-card>
+				<img md-card-image [src]="guia.linkPicture">
+			</md-card>
+		</div>
+
+		<div class="eight columns">
+			<div class="u-full-width">
+				<md-card style="margin-top: 20px">
+					<md-card-title style="font-family: Amatic SC; font-size: xx-large">Localização</md-card-title>
+					
+					<md-list dense>
+							<md-list-item> Cidade: {{guia.local.cidade}} </md-list-item>
+							<md-list-item> Estado: {{guia.local.estado}} </md-list-item>
+					</md-list>
+				</md-card>
+			</div>
+
+			<div class="row">
+				<div class="u-full-width">
+					<md-card style="margin-top: 20px">
+						<md-card-title style="font-family: Amatic SC; font-size: xx-large">Principais Locais em {{guia.local.cidade}}
+							<md-icon
+								style="cursor: pointer;"
+								md-tooltip="Adicionar Local"
+								tooltip-position="below"
+								(click)="openDialog()"
+								*ngIf="guia.points.length < 3 && self">add_circle</md-icon>
+						</md-card-title>
+						
+						<md-list dense *ngIf="guia.points.length > 0">
+							<md-list-item *ngFor="let point of guia.points"> {{point}} 
+								<button md-icon-button *ngIf="self" (click)="removePoint(point)">
+									<md-icon>clear</md-icon>
+								</button>
+							</md-list-item>
+						</md-list>
+						
+						<md-list dense *ngIf="guia.points.length == 0">
+							<md-list-item> Nenhum local listado :(</md-list-item>
+						</md-list>
+					</md-card>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="u-full-width">
+			<md-card class="panelcard">
+					<md-card-title style="font-family: Amatic SC; font-size: xx-large">Sobre {{guia.firstName}}</md-card-title>
+			</md-card>
+		</div>
+	</div>
+</md-card>
+
+<md-card class="panelcard" *ngIf="!infoGuia" style="margin-top: 25px;">
+	<md-card-title style="font-family: Amatic SC; font-size: xx-large">Guias</md-card-title>
+	<hr>
+
+	<div *ngIf="showGuias">
+		<div class="row" *ngFor="let row of guias">
+			<div class="four columns" *ngFor="let guia of row">
+				<md-card class="guia-card" (click)="showGuia(guia)">
+					<md-card-title-group>
+						<img md-card-sm-image [src]="guia.linkPicture">
+						<md-card-title style="font-size: 15px !important">{{guia.displayName}}</md-card-title>
+						<md-card-subtitle>{{guia.local.cidade}} - {{guia.local.sigla}}</md-card-subtitle>
+					</md-card-title-group>
+				</md-card>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="loading">
+		<md-spinner class="app-spinner"></md-spinner><p>Carregando</p>
+	</div>
+</md-card>
+

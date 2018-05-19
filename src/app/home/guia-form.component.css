@@ -1,0 +1,121 @@
+/* Título do formulário */
+md-toolbar.guia-title-form {
+    text-align: center;
+    font-size: 27px;
+    font-family: Lobster;
+}
+
+/* Espande os inputs até a borda do card */
+.guia-input {
+    width: 100%; 
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}
+
+#guia-div {
+    margin: auto;
+    /*width: 30%;*/
+}
+
+/* Smartphones (portrait and landscape) ---------- */
+@media screen and (min-width: 320px) and (max-width: 480px){
+    #guia-div {
+        width: 70%;
+    }
+    /*.ng2-dropdown-menu-container {
+	    width: 67%;
+    }*/
+}
+/* Smartphones (portrait) ---------- */
+@media screen and (max-width: 320px){
+    #guia-div {
+        width: 100%;
+    }
+    /*.ng2-dropdown-menu-container {
+	    width: 97%;
+    }*/
+}
+/* Smartphones (landscape) ---------- */
+@media screen and (min-width: 321px){
+    #guia-div {
+        width: 100%;
+    }
+    /*.ng2-dropdown-menu-container {
+	    width: 97%;
+    }*/
+}
+/* Tablets, iPads (portrait and landscape) ---------- */
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    #guia-div {
+        width: 40%;
+    }
+    /*.ng2-dropdown-menu-container {
+	    width: 37%;
+    }*/
+}
+/* Tablets, iPads (portrait) ---------- */
+@media screen and (min-width: 768px){
+    #guia-div {
+        width: 50%;
+    }
+    /*.ng2-dropdown-menu-container {
+	    width: 47%;
+    }*/
+}
+/* Tablets, iPads (landscape) ---------- */
+@media screen and (min-width: 1024px){
+    #guia-div {
+        width: 50%;
+    }
+    /*.ng2-dropdown-menu-container {
+	    width: 47%;
+    }*/
+}
+/* Desktops and laptops ---------- */
+@media screen and (min-width: 1224px){
+     #guia-div {
+        width: 30%;
+    }
+    /*.ng2-dropdown-menu-container {
+	    width: 27%;
+    }*/
+}
+/* Large screens ---------- */
+@media screen and (min-width: 1824px){
+     #guia-div {
+        width: 25%;
+    }
+    /*.ng2-dropdown-menu-container {
+	    width: 22%;
+    }*/
+}
+
+/* Expande os botões do select até a borda do card */
+/*.ng2-dropdown-button {
+    width: 100%; 
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    text-align: left;
+}*/
+
+/* Coloca a "setinha" do select ao lado direito */
+/*.caret {
+    float: right;
+}*/
+
+/* Replica folha do label dos inputs normais para o label do ng2-select */
+/*.selectLabel {
+    color: rgba(0, 0, 0, 0.41);
+    font-size: 11px;
+    user-select: none;
+    -webkit-user-select: none;
+}*/
+
+.app-action {
+    display: inline-block;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}

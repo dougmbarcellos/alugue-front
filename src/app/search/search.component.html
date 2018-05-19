@@ -1,0 +1,46 @@
+<div [hidden]="viewCidade" style="align-text: center;">
+	<md-card class="panelcard" style="width: 40%; margin: auto; margin-bottom: 1px">
+		<!--<md-card-title>Busca por Cidade</md-card-title>-->
+		
+				<md-input
+					id="searchInput"
+					#searchInput
+					style="width: 100%; font-size: x-large"
+					placeholder="Busque uma cidade"
+					[floatingPlaceholder]="false"
+					[(ngModel)]="termo"
+					(keyup.enter)="buscarCidade()">
+					
+					<md-hint align="start" style="font-size: small;">Mínimo: 3 caracteres</md-hint>
+				</md-input>
+
+				<button
+					md-raised-button
+					color="primary"
+					(click)="buscarCidade()"
+					style="width: 100%; margin-top: 10px">Buscar
+					<md-icon>search</md-icon>
+				</button>
+	</md-card>
+	  
+	<div *ngIf="hasResult">
+		<md-card class="panelcard" *ngIf="hasResult && !viewCidade">
+			<md-card-title>Resultados</md-card-title>
+		</md-card>
+
+		<md-card class="panelcard" *ngFor="let cidade of cidades">
+			<md-card-title>{{cidade.nome}} - {{cidade.sigla}}</md-card-title>
+			
+			<button
+				md-raised-button
+				color="primary"
+				(click)="visualizarCidade(cidade.estado, cidade.id)">Visualizar</button>
+		</md-card>
+	</div>
+</div>
+
+<al-cidade
+	[cidadePesquisa]="cidadeSelecionada"
+	*ngIf="hasResult && viewCidade"
+	(onClose)="fecharCidade($event)">
+</al-cidade>

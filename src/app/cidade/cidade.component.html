@@ -1,0 +1,90 @@
+<md-card class="panelcard" id="city">
+	<md-toolbar color="primary">
+		<span style="font-family: Lobster">{{cidadeInfo.cidade.nome}} - {{cidadeInfo.sigla}}</span>
+		<span class="nav-space"></span>
+		<span>
+			<md-icon
+				(click)="uploadImage()"
+				style="cursor: pointer;"
+				md-tooltip="Enviar uma imagem"
+				tooltip-position="below">photo</md-icon>
+			<md-icon
+				(click)="close()"
+				style="cursor: pointer;"
+				md-tooltip="Voltar para pesquisa"
+				tooltip-position="below">close</md-icon>
+		</span>
+	</md-toolbar>
+	
+	<md-grid-list *ngIf="cidadeInfo.cidade.locais.length > 1 && !carousel" [cols]="cidadeInfo.cidade.locais.length">
+		<md-grid-tile
+			*ngFor="let local of cidadeInfo.cidade.locais"
+			colspan="1"
+			style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+			<img [alt]="local.nome" [src]="local.fotos.urlImg" style="height: 100%; width: auto;">
+			<md-grid-tile-footer>
+				<h3 md-line>{{local.nome}}</h3>
+				<span md-line>{{local.fotos.descricao}}</span>
+				<md-icon>location_city</md-icon>
+			</md-grid-tile-footer>
+		</md-grid-tile>
+	</md-grid-list>
+
+	<md-grid-list *ngIf="cidadeInfo.cidade.locais.length == 1 && !carousel" [cols]="cidadeInfo.cidade.locais.length" [rowHeight]="450">
+		<md-grid-tile
+			*ngFor="let local of cidadeInfo.cidade.locais"
+			colspan="1"
+			style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+			<img [alt]="local.nome" [src]="local.fotos.urlImg" style="height: 100%; width: auto;">
+			<md-grid-tile-footer>
+				<h3 md-line>{{local.nome}}</h3>
+				<span md-line>{{local.fotos.descricao}}</span>
+				<md-icon>location_city</md-icon>
+			</md-grid-tile-footer>
+		</md-grid-tile>
+	</md-grid-list>
+		
+	<div *ngIf="cidadeInfo.cidade.locais.length > 0 && carousel">
+		<div class="carousel">
+			<ul class="slides">
+				<li *ngFor="let local of cidadeInfo.cidade.locais">
+					<h2>{{local.nome}}</h2>
+					<img [alt]="local.nome" [src]="local.fotos.urlImg">
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<md-card style="margin-top: 25px;">
+		<md-card-title style="font-family: Amatic SC; font-size: xx-large">Guias</md-card-title>
+		<hr>
+		<div class="row" *ngIf="gui4 === true">
+			<div class="four columns" *ngFor="let guia of guias">
+				<md-card (click)="selectedGuia(guia)">
+					<md-card-title-group>
+						<img md-card-sm-image [src]="guia.linkPicture">
+						<md-card-title style="font-size: 15px !important">{{guia.displayName}}</md-card-title>
+						<md-card-subtitle>Guia</md-card-subtitle>
+					</md-card-title-group>
+				</md-card>
+			</div>
+		</div>
+
+		<div *ngIf="gui4 === false">
+			<p>Não foram encontrados guias nesta cidade</p>
+		</div>
+
+		<div *ngIf="gui4 === null">
+			<md-spinner class="app-spinner"></md-spinner><p>Carregando</p>
+		</div>
+	</md-card>
+
+	<md-card *ngIf="loadMap" style="margin-top: 25px;">
+		<md-card-title style="font-family: Amatic SC; font-size: xx-large">Mapa</md-card-title>
+		<hr>
+
+		<sebm-google-map [latitude]="lat" [longitude]="lng">
+  			<sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+		</sebm-google-map>
+	</md-card>
+</md-card>
